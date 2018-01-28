@@ -63,7 +63,7 @@ def get_price(intent, session):
     text = 'Error occurred. Please try again'
     should_end_session = False
 
-    if 'Currency' in intent['slots']:
+    if 'Currency' in intent['slots'] and 'value' in intent['slots']['Currency']:
         speech = intent['slots']['Currency']['value']
         currency = speech_to_currency(speech.lower())
         if currency != None:
