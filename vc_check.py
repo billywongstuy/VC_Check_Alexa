@@ -25,12 +25,12 @@ def speech_to_currency(speech):
         'bitcoin gold': 'bitcoin-gold',
         'v chain': 'vechain',
         'qtum': 'qtum',
-        'etherium classic': 'etherium-classic',
+        'ethereum classic': 'ethereum-classic',
         'lisk': 'lisk',
         'rai Blocks': 'raiblocks',
         'steem': 'steem',
         'zcash': 'zcash',
-        'bytecoin': 'bytecoin'
+        'bytecoin': 'bytecoin-bcn'
     }
     if speech in speech_currency:
         return speech_currency[speech]

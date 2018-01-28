@@ -60,7 +60,7 @@ def handle_intent(intent_request, session):
 def get_price(intent, session):
 
     title = intent['name']
-    text = 'Error occurred. Please try again'
+    text = 'Error occurred. You may have forgotten the say the currency name. Please try again.'
     should_end_session = False
 
     if 'Currency' in intent['slots'] and 'value' in intent['slots']['Currency']:
@@ -72,7 +72,7 @@ def get_price(intent, session):
                 #text = 'The price of 1 %s as of %s is $%s' % (speech, get_date_from_epoch(res['last_updated']), res['price_usd'])
                 text = 'The price of 1 %s is $%s. You can ask for another price or say "I\'m done" to close this skill' % (speech, res['price_usd'])
         else:
-            text = 'That virtual currency is not supported by this skill. Sorry!'    
+            text = 'That virtual currency is not supported by this skill. Sorry!'  
 
     statement = build_statement(title,text,None,should_end_session)
     return build_response(statement,{})
