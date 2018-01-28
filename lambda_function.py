@@ -70,7 +70,7 @@ def get_price(intent, session):
             res = call_api(currency)
             if res != None:
                 #text = 'The price of 1 %s as of %s is $%s' % (speech, get_date_from_epoch(res['last_updated']), res['price_usd'])
-                text = 'The price of 1 %s is $%s' % (speech, res['price_usd'])
+                text = 'The price of 1 %s is $%s. You can ask for another price or say "I\'m done" to close this skill' % (speech, res['price_usd'])
         else:
             text = 'That virtual currency is not supported by this skill. Sorry!'    
 
@@ -80,20 +80,7 @@ def get_price(intent, session):
 
 def get_date_from_epoch(seconds):
     seconds = int(seconds)
-    num_to_month = {
-        1: 'January',
-        2: 'February',
-        3: 'March',
-        4: 'April',
-        5: 'May',
-        6: 'June',
-        7: 'July',
-        8: 'August',
-        9: 'September',
-        10: 'October',
-        11: 'November',
-        12: 'December'
-    }
+    num_to_month = [None, 'January','February','March','April','May','June','July','August','September','October','November','December']
     date = datetime.datetime.fromtimestamp(seconds)
     return '%s %d, %d %s' % (num_to_month[date.month], date.day, date.year, time.strftime('%I:%M:%S%p', time.localtime(seconds)))
 
