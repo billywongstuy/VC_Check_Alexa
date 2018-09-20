@@ -1,7 +1,7 @@
 from vc_check import *
 import time, datetime
 
-app_id = 'amzn1.ask.skill.9c45de62-65e3-41f2-bd27-8486d1cb1949'
+app_id = ''
 
 def lambda_handler(event, context):
     if event['session']['application']['applicationId'] != app_id:
